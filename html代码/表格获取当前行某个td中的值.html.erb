@@ -1,0 +1,28 @@
+<tr>
+  <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
+  <td><%= order.sn %></td>
+  <td><%= order.product_name %></td>
+  <td><%= order.product_price %></td>
+  <td><%= order.product_count %></td>
+  <td><%= order.payment %></td>
+  <td><%= order.payment %></td>
+  <td><%= order.status %></td>
+  <td>
+    <button class="btn btn-default btn-xs" value="hello">加发货单</button>
+  </td>
+</tr>
+
+<script type="text/javascript">
+    $("button").click(function(){
+        alert($(this).parent().parent().children("td")[1].innerHTML);
+    });
+</script>
+
+<!--
+$(this):当前的button；
+第一个parent():button所在的上层元素，即button所在的td
+第一个parent():即当前的tr 行；
+children("td"):当前行下的所有的td
+[1]:第二个td
+innerHtml:获取td中的值
+-->

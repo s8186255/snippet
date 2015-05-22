@@ -32,10 +32,29 @@ $("input[name='post[]']").each(function () {
 //checkbox全选和全不选；
 // input[name='all_product'] 是最上面的那个表示全选，全不选；
 // input[name='product[]'] 则是每一个checkbox；
+// 采用ajax方式：
+$("button").click(function(){
+    $.ajax({
+        url: "/provider/orders/",
+        data: {id: $(this).parent().parent().children("td")[1].innerHTML},
+        type: 'get',
+        dataType: 'json',
+        success: function(data){
+        }
+    })
+});
+
+
 $("input[name='all_product']").on("click", function() {
     var all = $(this);
     $("input[name='product[]']").each(function() {
         $(this).prop("checked", all.prop("checked"));
     });
 });
+
+
+
+
+
+
 
